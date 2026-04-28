@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Atlas — TLV:s intranät. Snabb åtkomst till nyheter, system, dokument och praktisk vardagsinfo.">
+  <title>Atlas — TLV:s intranät</title>
+
+  <!-- Preconnect till Google Fonts (Inter + Overpass) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Overpass:wght@500;600;700&display=swap">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Hoppa till innehåll-länk (WCAG 2.4.1) -->
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <!-- ====================================================================
+       TOPBAR — logga, sök, notiser, profil
+       ==================================================================== -->
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+
+      <a class="topbar__brand" href="index.html" aria-label="Atlas — startsida">
+        <svg class="topbar__logo" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+          <rect width="36" height="36" rx="8" fill="#005966"/>
+          <path d="M11 25 L18 9 L25 25 M14 19 L22 19" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="topbar__brand-text">
+          Atlas
+          <small>TLV intranät</small>
+        </span>
+      </a>
+
+      <button class="topbar__menu-toggle icon-btn" type="button"
+              aria-label="Öppna meny" aria-expanded="false" aria-controls="mainnav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <form class="topbar__search search" role="search" action="#" method="get">
+        <label for="global-search" class="visually-hidden">Sök i Atlas, dokument och personer</label>
+        <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="global-search" name="q" class="search__input"
+               placeholder="Sök i Atlas, dokument, personer …"
+               autocomplete="off">
+        <span class="search__hint" aria-hidden="true">⌘K</span>
+      </form>
+
+      <div class="topbar__actions">
+        <button class="icon-btn" type="button" aria-label="Notiser, 3 olästa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="icon-btn__badge" aria-hidden="true">3</span>
+        </button>
+
+        <button class="profile-btn" type="button" aria-label="Min profil — Lars Bergström" aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar avatar--c1" aria-hidden="true">LB</span>
+          <span class="profile-btn__name">Lars B.</span>
+          <svg class="profile-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       MAINNAV
+       ==================================================================== -->
+  <nav class="mainnav" id="mainnav" aria-label="Huvudnavigering">
+    <div class="container">
+      <ul class="mainnav__list">
+        <li><a class="mainnav__link" href="index.html" aria-current="page">Start</a></li>
+        <li><a class="mainnav__link" href="#">Vår myndighet</a></li>
+        <li><a class="mainnav__link" href="undersida.html">Min anställning</a></li>
+        <li><a class="mainnav__link" href="#">Support &amp; system</a></li>
+        <li><a class="mainnav__link" href="#">För chefer</a></li>
+        <li><a class="mainnav__link" href="#">Verktygslåda</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====================================================================
+       MAIN — startsida
+       ==================================================================== -->
+  <main id="main" tabindex="-1">
+
+    <!-- ----- Personlig zon ------------------------------------------- -->
+    <section class="welcome" aria-labelledby="welcome-heading">
+      <div class="container welcome__inner">
+
+        <div class="welcome__intro">
+          <p class="welcome__date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Tisdag 28 april 2026
+          </p>
+          <h1 id="welcome-heading" class="welcome__greeting">
+            God morgon, <span class="welcome__name">Lars</span>
+          </h1>
+          <ul class="welcome__context-list" aria-label="Dagens överblick">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span><strong>2 möten</strong> idag</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span><strong>1 ärende</strong> att granska</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Lokal A2</strong> bokad 13:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="welcome__shortcuts" aria-label="Mina genvägar">
+          <li>
+            <a class="shortcut" href="#">
+              <span class="shortcut__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </span>
+              Egenrapportering
+            </a>
+          </li>
+          <li>
+            <a class="shortcut" href="#">
+              <span class="shortcut__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </span>
+              Tidsregistrering
+            </a>
+          </li>
+          <li>
+            <a class="shortcut" href="#">
+              <span class="shortcut__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </span>
+              VBP
+            </a>
+          </li>
+          <li>
+            <a class="shortcut" href="#">
+              <span class="shortcut__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2 L13.5 8.5 L20 9 L15 13.5 L17 20 L12 16.5 L7 20 L9 13.5 L4 9 L10.5 8.5 Z"></path>
+                </svg>
+              </span>
+              Ledighet
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ----- Huvud-grid: nyheter + sidopanel ------------------------- -->
+    <div class="home-main">
+      <div class="container home-grid">
+
+        <!-- Vänster: kärnverksamhetsnyheter + sekundära -->
+        <div class="home-grid__primary">
+
+          <section class="news-main" aria-labelledby="news-main-h">
+            <div class="section-head">
+              <h2 id="news-main-h">Aktuellt från verksamheten</h2>
+              <a class="section-head__link" href="#">Alla nyheter →</a>
+            </div>
+
+            <ol class="news-list">
+              <li>
+                <article class="news-card">
+                  <div class="news-card__media" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <div class="news-card__meta">
+                      <span class="badge badge--decision">Beslut</span>
+                      <time datetime="2026-04-28">28 april 2026</time>
+                      <span aria-hidden="true">·</span>
+                      <span>Läkemedel</span>
+                    </div>
+                    <h3 class="news-card__title">
+                      <a href="#">Evfraxy ingår i högkostnadsskyddet med begränsning</a>
+                    </h3>
+                    <p class="news-card__excerpt">
+                      TLV beslutar att läkemedlet Evfraxy ska ingå i läkemedelsförmånerna med begränsad subvention för en specifik patientgrupp. Beslutet träder i kraft den 15 maj.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article class="news-card news-card--variant-2">
+                  <div class="news-card__media" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <div class="news-card__meta">
+                      <span class="badge badge--info">Riktlinje</span>
+                      <time datetime="2026-04-27">27 april 2026</time>
+                      <span aria-hidden="true">·</span>
+                      <span>Metod &amp; analys</span>
+                    </div>
+                    <h3 class="news-card__title">
+                      <a href="#">Justerad metod och tidplan för subvention och prissättning</a>
+                    </h3>
+                    <p class="news-card__excerpt">
+                      Den uppdaterade metoden införs successivt under hösten. Förändringen rör hur hälsoekonomiska bedömningar viktas mot budgetpåverkan i större ärenden.
+                    </p>
+                  </div>
+                </article>
+              </li>
+
+              <li>
+                <article class="news-card news-card--variant-3">
+                  <div class="news-card__media" aria-hidden="true"></div>
+                  <div class="news-card__body">
+                    <div class="news-card__meta">
+                      <span class="badge badge--press">Press</span>
+                      <time datetime="2026-04-01">1 april 2026</time>
+                      <span aria-hidden="true">·</span>
+                      <span>Omvärld</span>
+                    </div>
+                    <h3 class="news-card__title">
+                      <a href="#">TLV följer noga utvecklingen på den internationella läkemedelsmarknaden</a>
+                    </h3>
+                    <p class="news-card__excerpt">
+                      Vi bevakar prisförändringar och tillgångsfrågor som kan påverka svenska patienter och förmånssystemet. Bedömningen uppdateras månadsvis.
+                    </p>
+                  </div>
+                </article>
+              </li>
+            </ol>
+          </section>
+
+          <section class="news-secondary" aria-labelledby="news-sec-h">
+            <h2 id="news-sec-h">Mer på Atlas</h2>
+
+            <div class="tabs" role="tablist" aria-label="Sekundära nyheter">
+              <button id="tab-personal" class="tab" role="tab"
+                      aria-selected="true" aria-controls="panel-personal" tabindex="0">
+                Personalnyheter
+                <span class="tab__count" aria-hidden="true">4</span>
+              </button>
+              <button id="tab-office" class="tab" role="tab"
+                      aria-selected="false" aria-controls="panel-office" tabindex="-1">
+                På kontoret
+                <span class="tab__count" aria-hidden="true">3</span>
+              </button>
+              <button id="tab-media" class="tab" role="tab"
+                      aria-selected="false" aria-controls="panel-media" tabindex="-1">
+                I media
+                <span class="tab__count" aria-hidden="true">5</span>
+              </button>
+            </div>
+
+            <div id="panel-personal" class="tab-panel" data-active="true"
+                 role="tabpanel" aria-labelledby="tab-personal">
+              <ul class="compact-list">
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-28">28 apr</time>
+                    <span class="compact-list__title">Välkommen till Atlas — så funkar nya intranätet</span>
+                    <span class="compact-list__author">Redaktionen</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-25">25 apr</time>
+                    <span class="compact-list__title">Två nya kollegor på avdelningen för värdebaserad prissättning</span>
+                    <span class="compact-list__author">HR</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-22">22 apr</time>
+                    <span class="compact-list__title">Lönerevisionen är klar — så går det till från och med maj</span>
+                    <span class="compact-list__author">HR</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-18">18 apr</time>
+                    <span class="compact-list__title">Internutbildning i hälsoekonomi — anmälan öppen</span>
+                    <span class="compact-list__author">Kompetens</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div id="panel-office" class="tab-panel" data-active="false"
+                 role="tabpanel" aria-labelledby="tab-office" hidden>
+              <ul class="compact-list">
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-26">26 apr</time>
+                    <span class="compact-list__title">Servicedesk flyttar till plan 6 från och med vecka 19</span>
+                    <span class="compact-list__author">Lokaler</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-23">23 apr</time>
+                    <span class="compact-list__title">Nya rutiner för bokning av konferensrum</span>
+                    <span class="compact-list__author">Service</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-19">19 apr</time>
+                    <span class="compact-list__title">Cyklingens dag på TLV — gratis service den 14 maj</span>
+                    <span class="compact-list__author">Personalförening</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div id="panel-media" class="tab-panel" data-active="false"
+                 role="tabpanel" aria-labelledby="tab-media" hidden>
+              <ul class="compact-list">
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-27">27 apr</time>
+                    <span class="compact-list__title">DN: TLV varslar om ökad kontroll av prissättningar</span>
+                    <span class="compact-list__author">Dagens Nyheter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-26">26 apr</time>
+                    <span class="compact-list__title">SR Ekot: Nya rutiner kring högkostnadsskyddet</span>
+                    <span class="compact-list__author">Sveriges Radio</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-24">24 apr</time>
+                    <span class="compact-list__title">Läkartidningen: Hälsoekonomi i fokus när TLV får ny GD</span>
+                    <span class="compact-list__author">Läkartidningen</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-22">22 apr</time>
+                    <span class="compact-list__title">SVT: Tandvårdens prislista uppdateras inför sommaren</span>
+                    <span class="compact-list__author">SVT Nyheter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <time class="compact-list__date" datetime="2026-04-20">20 apr</time>
+                    <span class="compact-list__title">Dagens Medicin: Förmånsbeslut väcker debatt</span>
+                    <span class="compact-list__author">Dagens Medicin</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Höger: sidopanel -->
+        <aside class="sidebar" aria-label="Sidopanel">
+
+          <section class="widget" aria-labelledby="quick-h">
+            <div class="widget__head">
+              <h2 id="quick-h">Snabbåtkomst</h2>
+              <a href="#">Anpassa</a>
+            </div>
+            <ul class="quicklinks">
+              <li><a href="#" title="Egenrapportering">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                Egen­rapport
+              </a></li>
+              <li><a href="#" title="Tidsregistrering">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Tidregg
+              </a></li>
+              <li><a href="#" title="VBP — Värdebaserad prissättning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                VBP
+              </a></li>
+              <li><a href="#" title="Ledighet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L13.5 8.5 L20 9 L15 13.5 L17 20 L12 16.5 L7 20 L9 13.5 L4 9 L10.5 8.5 Z"></path></svg>
+                Ledighet
+              </a></li>
+              <li><a href="#" title="Reachmee">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Reachmee
+              </a></li>
+              <li><a href="#" title="Microsoft 365">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8"></rect><rect x="13" y="3" width="8" height="8"></rect><rect x="3" y="13" width="8" height="8"></rect><rect x="13" y="13" width="8" height="8"></rect></svg>
+                Microsoft 365
+              </a></li>
+              <li><a href="#" title="Proceedo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                Proceedo
+              </a></li>
+              <li><a href="#" title="Telefonlista">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"></path></svg>
+                Telefonlista
+              </a></li>
+            </ul>
+          </section>
+
+          <section class="widget" aria-labelledby="cal-h">
+            <div class="widget__head">
+              <h2 id="cal-h">Kalender</h2>
+              <a href="#">Outlook ↗</a>
+            </div>
+            <ul class="calendar-list">
+              <li>
+                <span class="calendar-list__time">
+                  09:00
+                  <small>30 min</small>
+                </span>
+                <span class="calendar-list__event">
+                  <span class="calendar-list__title">Veckostart — analysenheten</span>
+                  <span class="calendar-list__loc">Lokal C3 · Teams</span>
+                </span>
+              </li>
+              <li>
+                <span class="calendar-list__time">
+                  13:00
+                  <small>2 tim</small>
+                </span>
+                <span class="calendar-list__event">
+                  <span class="calendar-list__title">Workshop — metodjusteringar VBP</span>
+                  <span class="calendar-list__loc">Lokal A2</span>
+                </span>
+              </li>
+              <li>
+                <span class="calendar-list__time">
+                  Imorgon
+                  <small>10:00</small>
+                </span>
+                <span class="calendar-list__event">
+                  <span class="calendar-list__title">1:1 med Anna Svensson</span>
+                  <span class="calendar-list__loc">Teams</span>
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="widget" aria-labelledby="status-h">
+            <div class="widget__head">
+              <h2 id="status-h">Status &amp; lokaler</h2>
+            </div>
+            <ul class="status-list">
+              <li>
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>
+                  <span class="status-list__label">Cykelrum öppet</span>
+                  <span class="status-list__detail">Plan -1 · 10 platser lediga</span>
+                </span>
+              </li>
+              <li>
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>
+                  <span class="status-list__label">Takterrass öppen</span>
+                  <span class="status-list__detail">Plan 8 · sommarsäsong från 1 maj</span>
+                </span>
+              </li>
+              <li>
+                <span class="status-dot status-dot--warning" aria-hidden="true"></span>
+                <span>
+                  <span class="status-list__label">Skärtorsdag — kortare arbetsdag</span>
+                  <span class="status-list__detail">Lokalerna stänger kl 14:30</span>
+                </span>
+              </li>
+              <li>
+                <span class="status-dot status-dot--info" aria-hidden="true"></span>
+                <span>
+                  <span class="status-list__label">Driftinformation</span>
+                  <span class="status-list__detail">Inga pågående systemstörningar</span>
+                </span>
+              </li>
+            </ul>
+          </section>
+
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- ----- Verktygslåda (full bredd) ------------------------------- -->
+    <section class="toolbox" aria-labelledby="toolbox-h">
+      <div class="container">
+        <header class="toolbox__head">
+          <h2 id="toolbox-h">Verktygslådan</h2>
+          <p>Allt du behöver för att jobba effektivt — på ett ställe.</p>
+        </header>
+
+        <div class="toolbox__grid">
+          <a class="tool-card" href="#">
+            <span class="tool-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </span>
+            <h3>Mallar</h3>
+            <p>Brevmallar, presentationsmallar och formgivning som följer TLV:s grafiska profil.</p>
+            <span class="tool-card__cta">
+              Öppna
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="#">
+            <span class="tool-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="9" y1="13" x2="15" y2="13"></line>
+                <line x1="9" y1="17" x2="15" y2="17"></line>
+              </svg>
+            </span>
+            <h3>Blanketter</h3>
+            <p>Reseräkning, utlägg, sjukanmälan och övriga blanketter — alltid senaste version.</p>
+            <span class="tool-card__cta">
+              Öppna
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="#">
+            <span class="tool-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </span>
+            <h3>Riktlinjer</h3>
+            <p>Policys, rutiner och styrande dokument för det dagliga arbetet på myndigheten.</p>
+            <span class="tool-card__cta">
+              Öppna
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="#">
+            <span class="tool-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </span>
+            <h3>IT-support</h3>
+            <p>Få hjälp med inloggning, behörigheter, datorer och program. Öppet 07–17.</p>
+            <span class="tool-card__cta">
+              Öppna
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       SIDFOT
+       ==================================================================== -->
+  <footer class="sitefoot" role="contentinfo">
+    <div class="sitefoot__top">
+      <div class="container sitefoot__grid">
+
+        <div class="sitefoot__col">
+          <a class="sitefoot__brand" href="index.html">
+            <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+              <rect width="36" height="36" rx="8" fill="#0091ac"/>
+              <path d="M11 25 L18 9 L25 25 M14 19 L22 19" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Atlas
+          </a>
+          <p>Atlas är TLV:s intranät — ditt arbetsverktyg för nyheter, system, dokument och vardagsinfo.</p>
+          <address class="sitefoot__contact">
+            <strong>Tandvårds- och läkemedelsförmånsverket</strong>
+            Box 22520, 104&nbsp;22 Stockholm<br>
+            Fleminggatan 18, plan 7<br>
+            Växel: <a href="tel:+4685684205">08-568&nbsp;420&nbsp;50</a>
+          </address>
+        </div>
+
+        <nav class="sitefoot__col" aria-label="Snabblänkar">
+          <h2>Snabblänkar</h2>
+          <ul class="sitefoot__list">
+            <li><a href="#">Nyhetsarkiv</a></li>
+            <li><a href="#">Kalendarium</a></li>
+            <li><a href="#">Telefonlista</a></li>
+            <li><a href="#">Personalhandboken</a></li>
+            <li><a href="#">Lokaler &amp; bokning</a></li>
+          </ul>
+        </nav>
+
+        <nav class="sitefoot__col" aria-label="System">
+          <h2>System</h2>
+          <ul class="sitefoot__list">
+            <li><a href="#">Egenrapportering</a></li>
+            <li><a href="#">Tidsregistrering</a></li>
+            <li><a href="#">VBP</a></li>
+            <li><a href="#">Microsoft 365</a></li>
+            <li><a href="#">Proceedo</a></li>
+          </ul>
+        </nav>
+
+        <nav class="sitefoot__col" aria-label="Om Atlas">
+          <h2>Om Atlas</h2>
+          <ul class="sitefoot__list">
+            <li><a href="#">Redaktionen</a></li>
+            <li><a href="#">Felanmälan</a></li>
+            <li><a href="#">Tillgänglighetsredogörelse</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Hjälp &amp; support</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="sitefoot__bottom">
+      <div class="container sitefoot__bottom-inner">
+        <span>© 2026 Tandvårds- och läkemedelsförmånsverket</span>
+        <ul class="sitefoot__legal">
+          <li><a href="#">Integritetspolicy</a></li>
+          <li><a href="#">Tillgänglighet</a></li>
+          <li><a href="https://www.tlv.se">tlv.se ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

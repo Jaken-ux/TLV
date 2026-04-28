@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Atlas — Komponenter
+   Knappar, ikon-knappar, sökfält, badges, kort. Återanvänds över sidor.
+   ========================================================================== */
+
+/* --- Knappar ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn--primary {
+  background-color: var(--color-primary-800);
+  color: var(--color-text-light);
+  border-color: var(--color-primary-800);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-900);
+  border-color: var(--color-primary-900);
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.btn--secondary {
+  background-color: var(--color-bg);
+  color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-900);
+  border-color: var(--color-primary-900);
+  text-decoration: none;
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-primary-800);
+  border-color: transparent;
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-900);
+  text-decoration: none;
+}
+
+.btn--small {
+  min-height: 36px;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-small);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --- Ikon-knapp (topbar/notiser/profil) ---------------------------------- */
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  color: var(--color-primary-800);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  position: relative;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-border);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-btn__badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  background-color: var(--color-warning);
+  color: var(--color-text-light);
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-bg);
+  line-height: 1;
+}
+
+/* --- Sökfält ------------------------------------------------------------- */
+
+.search {
+  position: relative;
+  width: 100%;
+}
+
+.search__input {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-12);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast),
+              background-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.search__input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.search__input:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-bg);
+}
+
+.search__input:focus-visible {
+  outline: none;
+  background-color: var(--color-bg);
+  border-color: var(--color-primary-700);
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--color-primary-100);
+}
+
+.search__icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.search__hint {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-tiny);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  pointer-events: none;
+}
+
+/* --- Avatar -------------------------------------------------------------- */
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-700);
+  color: var(--color-text-light);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.avatar--sm { width: 28px; height: 28px; font-size: var(--fs-tiny); }
+.avatar--lg { width: 56px; height: 56px; font-size: var(--fs-h4); }
+
+/* Färg-varianter (för listor av personer) */
+.avatar--c1 { background-color: #007289; }
+.avatar--c2 { background-color: #005966; }
+.avatar--c3 { background-color: #a50e74; }
+.avatar--c4 { background-color: #197d33; }
+.avatar--c5 { background-color: #bc3a00; }
+
+/* --- Profilknapp i topbaren ---------------------------------------------- */
+
+.profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-1);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
+  min-height: 44px;
+}
+
+.profile-btn:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-border);
+}
+
+.profile-btn__name {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+}
+
+.profile-btn__chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+}
+
+/* --- Kort (basklass — startsidan/undersidan utökar) ---------------------- */
+
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.card--padded { padding: var(--space-6); }
+.card--tight  { padding: var(--space-4); }
+
+/* --- Badge / pill -------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-900);
+  line-height: 1.4;
+}
+
+.badge--news    { background-color: var(--color-primary-100); color: var(--color-primary-900); }
+.badge--press   { background-color: #fff3e0; color: #7a2600; }
+.badge--decision { background-color: #eef5df; color: #14591f; }
+.badge--info    { background-color: var(--color-info-bg); color: var(--color-primary-900); }

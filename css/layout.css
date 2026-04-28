@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Atlas — Layout
+   Container, topbar, mainnav, sidfot. Strukturella regler — inget utseende
+   som inte handlar om position, storlek eller stack.
+   ========================================================================== */
+
+/* --- Container ----------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* --- Topbar -------------------------------------------------------------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-topbar);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: var(--topbar-height);
+  padding-block: var(--space-2);
+}
+
+.topbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--color-primary-800);
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.topbar__brand:hover {
+  color: var(--color-primary-900);
+  text-decoration: none;
+}
+
+.topbar__logo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.topbar__brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.topbar__brand-text small {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-tiny);
+  color: var(--color-text-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.topbar__search {
+  flex: 1 1 auto;
+  max-width: 560px;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* Hamburger-knapp visas bara i mobilvy — döljs här */
+.topbar__menu-toggle {
+  display: none;
+}
+
+/* --- Mainnav ------------------------------------------------------------- */
+
+.mainnav {
+  background-color: var(--color-primary-800);
+  color: var(--color-text-light);
+  border-bottom: 3px solid var(--color-primary-700);
+}
+
+.mainnav__list {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-height: var(--mainnav-height);
+}
+
+.mainnav__list li + li {
+  margin-top: 0;
+}
+
+.mainnav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-small);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  min-height: 44px; /* WCAG klickyta */
+}
+
+.mainnav__link:hover {
+  background-color: var(--color-primary-900);
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.mainnav__link[aria-current="page"] {
+  background-color: var(--color-primary-900);
+  box-shadow: inset 0 -3px 0 var(--color-primary-100);
+}
+
+.mainnav__link:focus-visible {
+  outline-color: var(--color-primary-100);
+  outline-offset: -3px;
+  background-color: var(--color-primary-900);
+}
+
+.mainnav__link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* --- Sidfot -------------------------------------------------------------- */
+
+.sitefoot {
+  background-color: var(--color-primary-900);
+  color: var(--color-text-light);
+  margin-top: var(--space-16);
+}
+
+.sitefoot a {
+  color: var(--color-primary-100);
+  text-decoration: none;
+}
+
+.sitefoot a:hover {
+  color: var(--color-text-light);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.sitefoot a:focus-visible {
+  outline-color: var(--color-primary-100);
+}
+
+.sitefoot__top {
+  padding-block: var(--space-12) var(--space-10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sitefoot__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.sitefoot__col h2 {
+  font-size: var(--fs-h4);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+}
+
+.sitefoot__col p {
+  color: var(--color-primary-100);
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+}
+
+.sitefoot__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sitefoot__list li {
+  margin-bottom: var(--space-2);
+}
+
+.sitefoot__list li + li {
+  margin-top: 0;
+}
+
+.sitefoot__list a {
+  display: inline-block;
+  padding-block: var(--space-1);
+  font-size: var(--fs-small);
+}
+
+.sitefoot__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--fs-small);
+  font-style: normal;
+  line-height: var(--lh-snug);
+}
+
+.sitefoot__contact strong {
+  color: var(--color-text-light);
+  font-weight: var(--fw-semibold);
+}
+
+.sitefoot__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  color: var(--color-text-light);
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.sitefoot__brand:hover {
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.sitefoot__brand svg {
+  width: 32px;
+  height: 32px;
+}
+
+.sitefoot__bottom {
+  padding-block: var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--color-primary-100);
+}
+
+.sitefoot__bottom-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-6);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sitefoot__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sitefoot__legal li + li {
+  margin-top: 0;
+}

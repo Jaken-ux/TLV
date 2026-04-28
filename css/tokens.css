@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Atlas — Designtokens
+   Bygger på TLV:s grafiska profil. Färgvärden hämtade från tlv.se main.css.
+   ========================================================================== */
+
+:root {
+  /* --- Primärfärger — TLV petrol/teal -------------------------------------- */
+  --color-primary-900: #003540;   /* mörkast — sidfot, hover */
+  --color-primary-800: #005966;   /* primär mörk — logga, sidfot */
+  --color-primary-700: #007289;   /* primär — knappar, accenter */
+  --color-primary-600: #0091ac;   /* hover/aktiv */
+  --color-primary-500: #0097a1;   /* lättare accent */
+  --color-primary-100: #d1e9f2;   /* ljus bakgrund / hover-kort */
+  --color-primary-50:  #e5eef0;   /* infozoner, sektionsbakgrunder */
+
+  /* --- Neutrala ----------------------------------------------------------- */
+  --color-text:          #1a1a1a;   /* brödtext — kontrast 16.1:1 mot vit */
+  --color-text-muted:    #4d4d4d;   /* sekundär text — kontrast 9.0:1 */
+  --color-text-subtle:   #5a5a5a;   /* meta / datum */
+  --color-text-light:    #ffffff;   /* text på mörk bakgrund */
+  --color-text-link:     #005966;   /* länk — kontrast 9.6:1 mot vit */
+  --color-text-link-hover: #003540;
+
+  --color-border:        #e5e5e5;   /* tunna borders */
+  --color-border-strong: #b0b0b0;   /* hover/aktiv */
+  --color-border-focus:  #0091ac;
+
+  --color-bg:            #ffffff;   /* huvudbakgrund */
+  --color-bg-subtle:     #f7f7f5;   /* sektionsbakgrund */
+  --color-bg-tint:       #e5eef0;   /* sval ljus tint */
+  --color-bg-card:       #ffffff;   /* kort */
+  --color-bg-overlay:    rgba(0, 53, 64, 0.55);
+
+  /* --- Semantiska --------------------------------------------------------- */
+  --color-success:       #197d33;   /* TLV-grön */
+  --color-success-bg:    #eef5df;
+  --color-warning:       #bc3a00;   /* TLV-orange */
+  --color-warning-bg:    #fff3e0;
+  --color-danger:        #a94442;
+  --color-danger-bg:     #fdecea;
+  --color-info:          #007289;
+  --color-info-bg:       #d1e9f2;
+
+  /* --- Typografi ---------------------------------------------------------- */
+  /* TLV använder Inter (brödtext) och Overpass (rubriker). */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Overpass", "Inter", -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Roboto, sans-serif;
+
+  --fs-h1:    2rem;        /* 32px */
+  --fs-h2:    1.5rem;      /* 24px */
+  --fs-h3:    1.25rem;     /* 20px */
+  --fs-h4:    1.125rem;    /* 18px */
+  --fs-body:  1rem;        /* 16px */
+  --fs-small: 0.875rem;    /* 14px */
+  --fs-tiny:  0.75rem;     /* 12px */
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+
+  --lh-tight:  1.25;
+  --lh-snug:   1.4;
+  --lh-normal: 1.6;
+
+  /* --- Spacing — 4px-baserad skala --------------------------------------- */
+  --space-1:  0.25rem;   /* 4 */
+  --space-2:  0.5rem;    /* 8 */
+  --space-3:  0.75rem;   /* 12 */
+  --space-4:  1rem;      /* 16 */
+  --space-5:  1.25rem;   /* 20 */
+  --space-6:  1.5rem;    /* 24 */
+  --space-8:  2rem;      /* 32 */
+  --space-10: 2.5rem;    /* 40 */
+  --space-12: 3rem;      /* 48 */
+  --space-16: 4rem;      /* 64 */
+  --space-20: 5rem;      /* 80 */
+
+  /* --- Övrigt ------------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+
+  /* Fokus-ring uppfyller WCAG 2.4.7 + 2.4.13 */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-primary-600);
+
+  /* --- Layout ------------------------------------------------------------- */
+  --container-max:     1200px;
+  --container-padding: var(--space-6);
+  --content-readable:  65ch;     /* max-bredd för långa textstycken */
+  --topbar-height:     64px;
+  --mainnav-height:    52px;
+
+  /* --- Z-index (skala för stack) ----------------------------------------- */
+  --z-skiplink: 100;
+  --z-topbar:   50;
+  --z-dropdown: 60;
+  --z-overlay:  80;
+  --z-modal:    90;
+
+  /* --- Transitions ------------------------------------------------------- */
+  --transition-fast: 120ms ease-out;
+  --transition-base: 200ms ease-out;
+}

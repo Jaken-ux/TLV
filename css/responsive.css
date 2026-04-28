@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Atlas — Responsive
+   Brytpunkter:
+     - ≤1024px  tablet (stackar 2-kolumn-grids till 1)
+     - ≤768px   mobil  (hamburger, full-bredd kort, söket på rad 2)
+     - ≤480px   liten mobil (justerad container-padding, H1 mindre)
+   ========================================================================== */
+
+
+/* =========================================================================
+   ≤ 1024px — TABLET
+   Sidor blir mer staplade men topbar är fortfarande oförändrad.
+   ========================================================================= */
+@media (max-width: 1024px) {
+
+  :root {
+    --container-padding: var(--space-5);
+  }
+
+  /* Startsida — stack huvudgrid */
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  /* Toolbox 4 → 2 kolumner */
+  .toolbox__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sidfot 4 → 2 kolumner */
+  .sitefoot__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-8);
+  }
+
+  /* Undersida — stack content + sidopanel, släpp sticky */
+  .page-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .page-aside {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* TOC + meta sida vid sida när sidopanel ligger under brödtext */
+  .page-aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .page-meta {
+    /* fyller sin grid-cell */
+  }
+
+  /* Welcome shortcuts behåller 4 kolumner — får plats */
+}
+
+
+/* =========================================================================
+   ≤ 768px — MOBIL
+   Topbar wraps, mainnav blir hamburger, allt blir 1 kolumn.
+   ========================================================================= */
+@media (max-width: 768px) {
+
+  /* --- Topbar -------------------------------------------------------- */
+
+  .topbar__inner {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+  }
+
+  .topbar__brand {
+    flex: 1 1 auto;
+    font-size: 1.25rem;
+  }
+
+  .topbar__brand-text small {
+    display: none; /* "TLV intranät" — sparas för desktop */
+  }
+
+  .topbar__menu-toggle {
+    display: inline-flex;
+    order: 2;
+  }
+
+  .topbar__actions {
+    order: 3;
+  }
+
+  /* Sökfält flyttar till egen rad, full bredd */
+  .topbar__search {
+    order: 4;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Dölj namnet och chevron i profilknappen — bara avatar kvar */
+  .profile-btn__name,
+  .profile-btn__chevron {
+    display: none;
+  }
+
+  /* Dölj ⌘K-hint i sökfältet — kortkommando irrelevant på touch */
+  .search__hint {
+    display: none;
+  }
+
+  /* --- Mainnav (hamburger) ------------------------------------------ */
+
+  .mainnav {
+    display: none;
+  }
+
+  /* Öppen via JS som sätter data-open="true" */
+  .mainnav[data-open="true"] {
+    display: block;
+    border-bottom: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .mainnav .container {
+    padding-inline: 0;
+    max-width: 100%;
+  }
+
+  .mainnav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: auto;
+    padding-block: var(--space-2);
+  }
+
+  .mainnav__link {
+    border-radius: 0;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--fs-body);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .mainnav__link[aria-current="page"] {
+    box-shadow: inset 4px 0 0 var(--color-primary-100);
+  }
+
+  .mainnav__list li:last-child .mainnav__link {
+    border-bottom: none;
+  }
+
+  /* --- Welcome ------------------------------------------------------- */
+
+  .welcome__inner {
+    padding-block: var(--space-8);
+    gap: var(--space-6);
+  }
+
+  .welcome__greeting {
+    font-size: 1.875rem;
+  }
+
+  .welcome__context-list {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .welcome__shortcuts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shortcut {
+    min-height: 80px;
+    padding: var(--space-3);
+  }
+
+  /* --- Nyheter ------------------------------------------------------- */
+
+  /* Kärnverksamhetsnyheter — stack media + body */
+  .news-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .news-card__media {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  /* Sekundära nyheter — flikar scrollar horisontellt */
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    /* dölj scrollbar visuellt men behåll funktion */
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Compact-list — datum/titel/author på två rader */
+  .compact-list a {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-1) var(--space-3);
+  }
+
+  .compact-list__author {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* --- Sidopanel (höger) → blir full bredd när home-grid stackat ----- */
+
+  .quicklinks {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* --- Verktygslåda 1 kolumn ----------------------------------------- */
+
+  .toolbox {
+    padding-block: var(--space-10);
+  }
+
+  .toolbox__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Sidfot 1 kolumn ----------------------------------------------- */
+
+  .sitefoot {
+    margin-top: var(--space-12);
+  }
+
+  .sitefoot__top {
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .sitefoot__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .sitefoot__bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  /* --- Undersida ----------------------------------------------------- */
+
+  .page-hero__inner {
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .page-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-content {
+    font-size: var(--fs-body);
+  }
+
+  .page-content h2 {
+    margin-top: var(--space-8);
+  }
+
+  /* TOC + meta — stack istället för bredvid varandra */
+  .page-aside {
+    grid-template-columns: 1fr;
+  }
+
+  /* Feedback-rad — stack */
+  .page-feedback {
+    padding-block: var(--space-8);
+  }
+
+  .page-feedback__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .feedback-buttons {
+    width: 100%;
+  }
+
+  .feedback-buttons .btn {
+    flex: 1 1 0;
+  }
+
+  .feedback-form {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-form .btn {
+    justify-self: stretch;
+  }
+
+  /* Brödsmulor wrappar — redan via flex-wrap, men gör texten lite mindre */
+  .breadcrumbs__list {
+    font-size: var(--fs-tiny);
+  }
+}
+
+
+/* =========================================================================
+   ≤ 480px — LITEN MOBIL
+   Sista justeringar för smala skärmar.
+   ========================================================================= */
+@media (max-width: 480px) {
+
+  :root {
+    --container-padding: var(--space-4);
+  }
+
+  /* Hero-rubrik mindre */
+  .welcome__greeting {
+    font-size: 1.625rem;
+  }
+
+  .page-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Snabbåtkomst 2-kolumns istället för 4 — undvik mikro-knappar */
+  .quicklinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tab__count kan döljas för plats */
+  .tab__count {
+    display: none;
+  }
+
+  /* Större kalender-tid-kolumn på liten skärm */
+  .calendar-list li {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .calendar-list__time {
+    display: flex;
+    gap: var(--space-2);
+    align-items: baseline;
+  }
+
+  .calendar-list__time small {
+    display: inline;
+  }
+
+  /* Doc-list — dölj filstorlek på liten skärm för plats */
+  .doc-list a {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .doc-list__size {
+    display: none;
+  }
+
+  /* Profilbild i topbaren mindre */
+  .topbar__brand {
+    font-size: 1.125rem;
+  }
+}
+
+
+/* =========================================================================
+   PRINT (lätt grundförberedelse — ingen primär leverans)
+   ========================================================================= */
+@media print {
+  .topbar,
+  .mainnav,
+  .sitefoot,
+  .page-feedback,
+  .skip-link,
+  .topbar__menu-toggle {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  .page-grid,
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
