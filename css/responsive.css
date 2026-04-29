@@ -219,7 +219,7 @@
   /* --- Sidopanel (höger) → blir full bredd när home-grid stackat ----- */
 
   .quicklinks {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   /* --- Verktygslåda 1 kolumn ----------------------------------------- */
@@ -330,7 +330,7 @@
 
   /* Snabbåtkomst 2-kolumns istället för 4 — undvik mikro-knappar */
   .quicklinks {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* Tab__count kan döljas för plats */
