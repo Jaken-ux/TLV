@@ -28,30 +28,36 @@
   background-position: center 35%;
 }
 
-/* Petrol-gradient som faddes till vit i botten — låter shortcuts ligga ren */
+/* Lätt jämn mörk overlay för konsekvent ton över hela bilden */
 .welcome::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(180deg,
-    rgba(0, 53, 64, 0.45) 0%,
-    rgba(0, 89, 102, 0.30) 25%,
-    rgba(0, 89, 102, 0.15) 50%,
-    rgba(255, 255, 255, 0.55) 78%,
-    rgba(255, 255, 255, 0.98) 100%);
+    rgba(0, 0, 0, 0.32) 0%,
+    rgba(0, 0, 0, 0.22) 60%,
+    rgba(0, 0, 0, 0.42) 100%);
 }
 
 .welcome__inner {
-  padding-block: var(--space-12) var(--space-10);
+  padding-block: var(--space-12);
   display: flex;
   flex-direction: column;
-  gap: var(--space-10);
-  min-height: 420px;
+  gap: var(--space-8);
+  min-height: 480px;
 }
 
+/* "Platta" — frostat glas i mörk petrol bakom intro-texten */
 .welcome__intro {
   max-width: 720px;
+  padding: var(--space-6) var(--space-8) var(--space-7);
+  background-color: rgba(0, 53, 64, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 .welcome__greeting {
@@ -62,7 +68,6 @@
   font-weight: var(--fw-bold);
   letter-spacing: -0.02em;
   color: var(--color-text-light);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
 .welcome__greeting .welcome__name {
@@ -108,7 +113,6 @@
   gap: var(--space-2) var(--space-5);
   font-size: var(--fs-body);
   color: var(--color-text-light);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .welcome__context-list li {
@@ -150,8 +154,9 @@
   padding: var(--space-4);
   min-height: 96px;
   background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
   text-decoration: none;
   color: var(--color-text);
   font-weight: var(--fw-semibold);
@@ -163,7 +168,7 @@
 
 .shortcut:hover {
   border-color: var(--color-primary-700);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
   text-decoration: none;
   color: var(--color-primary-900);
   transform: translateY(-2px);
