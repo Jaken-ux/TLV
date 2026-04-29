@@ -916,7 +916,10 @@
 
 .page-hero__inner {
   padding-block: var(--space-10) var(--space-8);
-  max-width: 820px;
+}
+
+.page-hero h1 {
+  max-width: 720px;
 }
 
 .page-hero__kicker {
