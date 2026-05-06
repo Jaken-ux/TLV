@@ -642,6 +642,7 @@
     <div class="sitefoot__top">
       <div class="container sitefoot__grid">
 
+        <!-- Kolumn 1 — Atlas-redaktionen -->
         <div class="sitefoot__col">
           <a class="sitefoot__brand" href="index.html">
             <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false">
@@ -650,54 +651,77 @@
             </svg>
             Atlas
           </a>
-          <p>Atlas är TLV:s intranät — ditt arbetsverktyg för nyheter, system, dokument och vardagsinfo.</p>
-          <address class="sitefoot__contact">
-            <strong>Tandvårds- och läkemedelsförmånsverket</strong>
-            Box 22520, 104&nbsp;22 Stockholm<br>
-            Fleminggatan 18, plan 7<br>
-            Växel: <a href="tel:+4685684205">08-568&nbsp;420&nbsp;50</a>
-          </address>
+          <p class="sitefoot__tagline">TLV:s intranät — vi gör vardagen enklare på jobbet.</p>
+
+          <div class="sitefoot__editor">
+            <span class="avatar avatar--c3" aria-hidden="true">ML</span>
+            <div class="sitefoot__editor-info">
+              <span class="sitefoot__editor-name">Maria Lindholm</span>
+              <span class="sitefoot__editor-role">Redaktör · Kommunikation</span>
+            </div>
+          </div>
+
+          <a class="sitefoot__tip" href="mailto:redaktionen@tlv.se">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Tipsa redaktionen
+          </a>
         </div>
 
-        <nav class="sitefoot__col" aria-label="Snabblänkar">
-          <h2>Snabblänkar</h2>
+        <!-- Kolumn 2 — Hjälp & support -->
+        <nav class="sitefoot__col" aria-label="Hjälp och support">
+          <h2>Hjälp &amp; support</h2>
           <ul class="sitefoot__list">
-            <li><a href="#">Nyhetsarkiv</a></li>
-            <li><a href="#">Kalendarium</a></li>
-            <li><a href="#">Telefonlista</a></li>
+            <li><a href="#">IT-support</a></li>
+            <li><a href="#">Felanmäl Atlas</a></li>
+            <li><a href="#">FAQ &amp; vanliga frågor</a></li>
+            <li><a href="#">Driftinformation</a></li>
+          </ul>
+        </nav>
+
+        <!-- Kolumn 3 — Genvägar (unika, ej redundanta) -->
+        <nav class="sitefoot__col" aria-label="Genvägar">
+          <h2>Genvägar</h2>
+          <ul class="sitefoot__list">
             <li><a href="#">Personalhandboken</a></li>
-            <li><a href="#">Lokaler &amp; bokning</a></li>
+            <li><a href="#">Mötesrumsbokning</a></li>
+            <li><a href="#">Kalendarium</a></li>
+            <li><a href="#">Nyhetsarkiv</a></li>
           </ul>
         </nav>
 
-        <nav class="sitefoot__col" aria-label="System">
-          <h2>System</h2>
-          <ul class="sitefoot__list">
-            <li><a href="#">Egenrapportering</a></li>
-            <li><a href="#">Tidsregistrering</a></li>
-            <li><a href="#">VBP</a></li>
-            <li><a href="#">Microsoft 365</a></li>
-            <li><a href="#">Proceedo</a></li>
+        <!-- Kolumn 4 — Status & pulsen -->
+        <div class="sitefoot__col" aria-labelledby="foot-status-h">
+          <h2 id="foot-status-h">Status &amp; pulsen</h2>
+          <ul class="sitefoot__status">
+            <li>
+              <span class="sitefoot__status-dot sitefoot__status-dot--pulse" aria-hidden="true"></span>
+              <span>
+                <strong>Alla system fungerar</strong>
+                Senaste incident: 12 mars 2026
+              </span>
+            </li>
+            <li>
+              <span class="sitefoot__status-dot sitefoot__status-dot--info" aria-hidden="true"></span>
+              <span>
+                <strong>Senast uppdaterad</strong>
+                <time datetime="2026-05-06">6 maj 2026</time> — Resor och utlägg
+              </span>
+            </li>
           </ul>
-        </nav>
-
-        <nav class="sitefoot__col" aria-label="Om Atlas">
-          <h2>Om Atlas</h2>
-          <ul class="sitefoot__list">
-            <li><a href="#">Redaktionen</a></li>
-            <li><a href="#">Felanmälan</a></li>
-            <li><a href="#">Tillgänglighetsredogörelse</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Hjälp &amp; support</a></li>
-          </ul>
-        </nav>
+        </div>
 
       </div>
     </div>
 
     <div class="sitefoot__bottom">
       <div class="container sitefoot__bottom-inner">
-        <span>© 2026 Tandvårds- och läkemedelsförmånsverket</span>
+        <div class="sitefoot__copyright">
+          <span>© 2026 Tandvårds- och läkemedelsförmånsverket</span>
+          <span class="sitefoot__build">Atlas v2.4 · 2026.05.06</span>
+        </div>
         <ul class="sitefoot__legal">
           <li><a href="#">Integritetspolicy</a></li>
           <li><a href="#">Tillgänglighet</a></li>

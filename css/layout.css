@@ -150,9 +150,33 @@
 /* --- Sidfot -------------------------------------------------------------- */
 
 .sitefoot {
-  background-color: var(--color-primary-900);
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(0, 145, 172, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, var(--color-primary-900) 0%, #001e26 100%);
   color: var(--color-text-light);
   margin-top: var(--space-16);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtilt cirkelmönster i bottom-right — visuell signatur */
+.sitefoot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: repeating-radial-gradient(
+    circle at 100% 100%,
+    transparent 0,
+    transparent 36px,
+    rgba(0, 145, 172, 0.07) 36px,
+    rgba(0, 145, 172, 0.07) 37px,
+    transparent 37px,
+    transparent 74px
+  );
+  pointer-events: none;
 }
 
 .sitefoot a {
@@ -232,7 +256,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
   color: var(--color-text-light);
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
@@ -248,6 +272,155 @@
 .sitefoot__brand svg {
   width: 32px;
   height: 32px;
+}
+
+.sitefoot__tagline {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--color-primary-100);
+}
+
+/* --- Redaktör-block ------------------------------------------------------ */
+
+.sitefoot__editor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.sitefoot__editor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sitefoot__editor-name {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.sitefoot__editor-role {
+  display: block;
+  font-size: var(--fs-tiny);
+  color: var(--color-primary-100);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sitefoot__tip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-light);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.sitefoot__tip:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: var(--color-text-light);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.sitefoot__tip svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Status & pulsen ----------------------------------------------------- */
+
+.sitefoot__status {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sitefoot__status li {
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--color-primary-100);
+}
+
+.sitefoot__status li + li {
+  margin-top: 0;
+}
+
+.sitefoot__status li strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--color-text-light);
+  font-weight: var(--fw-semibold);
+}
+
+.sitefoot__status-dot {
+  flex-shrink: 0;
+  margin-top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.20);
+}
+
+.sitefoot__status-dot--info {
+  background-color: var(--color-primary-100);
+  box-shadow: 0 0 0 4px rgba(209, 233, 242, 0.18);
+}
+
+.sitefoot__status-dot--pulse {
+  animation: footPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes footPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.20); }
+  50%      { box-shadow: 0 0 0 7px rgba(76, 175, 80, 0.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sitefoot__status-dot--pulse { animation: none; }
+}
+
+/* --- Bygg-info i bottenrad ---------------------------------------------- */
+
+.sitefoot__build {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs-tiny);
+  color: rgba(209, 233, 242, 0.55);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.sitefoot__copyright {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  align-items: baseline;
 }
 
 .sitefoot__bottom {
