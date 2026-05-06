@@ -584,62 +584,65 @@
   height: 116px;
   padding: var(--space-4) var(--space-2);
   box-sizing: border-box;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-primary-50) 100%);
+  border: 1px solid rgba(0, 89, 102, 0.10);
   border-radius: var(--radius-md);
   text-align: center;
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-primary-900);
   font-size: var(--fs-tiny);
   font-weight: var(--fw-semibold);
   line-height: 1.3;
   letter-spacing: -0.005em;
   box-shadow:
-    0 1px 2px rgba(0, 53, 64, 0.04),
-    0 4px 10px rgba(0, 53, 64, 0.03);
+    0 1px 2px rgba(0, 53, 64, 0.05),
+    0 4px 12px rgba(0, 89, 102, 0.04);
   transition: transform var(--transition-fast),
               border-color var(--transition-fast),
-              box-shadow var(--transition-fast);
+              box-shadow var(--transition-fast),
+              background var(--transition-fast);
 }
 
 .quicklinks a:hover {
-  border-color: var(--color-primary-200, rgba(0, 89, 102, 0.18));
+  background:
+    linear-gradient(135deg, #c2dde4 0%, var(--color-primary-100) 100%);
+  border-color: var(--color-primary-700);
   color: var(--color-primary-900);
   text-decoration: none;
   transform: translateY(-2px);
   box-shadow:
-    0 2px 4px rgba(0, 53, 64, 0.06),
-    0 10px 24px rgba(0, 89, 102, 0.10);
+    0 2px 4px rgba(0, 53, 64, 0.08),
+    0 12px 28px rgba(0, 89, 102, 0.16);
 }
 
-/* Ikon-puck — tinted gradient med inner highlight, känns "lyft" */
+/* Ikon-puck — djup petrol-gradient som kontrasterar tinted bg */
 .quicklinks a svg {
   width: 22px;
   height: 22px;
   padding: 9px;
   box-sizing: content-box;
   background:
-    linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-primary-50) 100%);
+    linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
   border-radius: 10px;
-  color: var(--color-primary-800);
+  color: var(--color-text-light);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 1px 2px rgba(0, 53, 64, 0.10);
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 2px 4px rgba(0, 53, 64, 0.20);
   transition: background var(--transition-fast),
               color var(--transition-fast),
               box-shadow var(--transition-fast),
               transform var(--transition-fast);
 }
 
-/* Hover: pucken byter till djup petrol med vit ikon — tydlig CTA */
+/* Hover: pucken får mer pop — djupare ton + lyft */
 .quicklinks a:hover svg {
   background:
-    linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
-  color: var(--color-text-light);
+    linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 4px 10px rgba(0, 89, 102, 0.30);
-  transform: scale(1.05);
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 4px 12px rgba(0, 89, 102, 0.36);
+  transform: scale(1.06);
 }
 
 /* Kalender */
