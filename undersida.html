@@ -139,6 +139,92 @@
     <div class="page-main">
       <div class="container page-grid">
 
+        <!-- Sektionsmeny — visar Min anställning-hierarkin -->
+        <nav class="section-nav" aria-label="Min anställning – sektionsmeny">
+          <button class="section-nav__mobile-toggle" type="button"
+                  aria-expanded="false" aria-controls="section-nav-body">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span>Min anställning</span>
+            <svg class="section-nav__mobile-chevron" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="section-nav__body" id="section-nav-body">
+            <h2 class="section-nav__title">
+              <a href="#">Min anställning</a>
+            </h2>
+            <ul class="section-nav__tree">
+              <li>
+                <button class="section-nav__toggle" type="button"
+                        aria-expanded="false" aria-controls="sub-anstallning">
+                  <span class="section-nav__label">Anställning &amp; lön</span>
+                  <svg class="section-nav__chevron" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                       stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+                <ul id="sub-anstallning" class="section-nav__sub" hidden>
+                  <li><a class="section-nav__link" href="#">Lönerevision</a></li>
+                  <li><a class="section-nav__link" href="#">Pension &amp; försäkring</a></li>
+                  <li><a class="section-nav__link" href="#">Skatt och deklaration</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="section-nav__link section-nav__link--current"
+                   href="undersida.html" aria-current="page">
+                  Resor och utlägg
+                </a>
+              </li>
+              <li>
+                <button class="section-nav__toggle" type="button"
+                        aria-expanded="true" aria-controls="sub-franvaro">
+                  <span class="section-nav__label">Frånvaro och ledighet</span>
+                  <svg class="section-nav__chevron" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                       stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+                <ul id="sub-franvaro" class="section-nav__sub">
+                  <li><a class="section-nav__link" href="#">Semester</a></li>
+                  <li><a class="section-nav__link" href="#">Sjukfrånvaro &amp; VAB</a></li>
+                  <li><a class="section-nav__link" href="#">Föräldraledighet</a></li>
+                </ul>
+              </li>
+              <li>
+                <button class="section-nav__toggle" type="button"
+                        aria-expanded="false" aria-controls="sub-komp">
+                  <span class="section-nav__label">Kompetensutveckling</span>
+                  <svg class="section-nav__chevron" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                       stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+                <ul id="sub-komp" class="section-nav__sub" hidden>
+                  <li><a class="section-nav__link" href="#">Kompetensportalen</a></li>
+                  <li><a class="section-nav__link" href="#">Internutbildningar</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="section-nav__link" href="#">Hälsa &amp; friskvård</a>
+              </li>
+              <li>
+                <a class="section-nav__link" href="#">Arbetsmiljö</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <article class="page-content">
 
           <h2 id="boka-resa">Boka resa</h2>

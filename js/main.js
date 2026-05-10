@@ -165,6 +165,35 @@
 
 
   /* ==========================================================================
+     4. SEKTIONSMENY (undersida)
+     Accordion-toggling för sub-menyer + mobil-drawer-toggle.
+     ========================================================================== */
+
+  function initSectionNav() {
+    var toggles = document.querySelectorAll('.section-nav__toggle, .section-nav__mobile-toggle');
+    if (!toggles.length) return;
+
+    Array.prototype.forEach.call(toggles, function (toggle) {
+      toggle.addEventListener('click', function () {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        var targetId = toggle.getAttribute('aria-controls');
+        var target = targetId ? document.getElementById(targetId) : null;
+
+        toggle.setAttribute('aria-expanded', String(!expanded));
+
+        if (target) {
+          if (expanded) {
+            target.setAttribute('hidden', '');
+          } else {
+            target.removeAttribute('hidden');
+          }
+        }
+      });
+    });
+  }
+
+
+  /* ==========================================================================
      INIT
      ========================================================================== */
 
@@ -172,6 +201,7 @@
     initMenuToggle();
     initTabs();
     initFeedback();
+    initSectionNav();
   }
 
   if (document.readyState === 'loading') {
